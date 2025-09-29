@@ -1,5 +1,6 @@
 package com.safa.aquarium;
 
+import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Especie;
 import com.safa.aquarium.modelos.Pez;
 import com.safa.aquarium.repositorios.IAcuarioRepository;
@@ -72,8 +73,10 @@ class AquariumApplicationTests {
     @Test
     @Transactional
     void consultarAcuarios() {
-
-        acuarioRepository.findAll();
-
+        List<Acuario> acuarios = acuarioRepository.findAll();
+        for (Acuario a : acuarios) {
+            System.out.println(a.getPlantas().size()); // Fuerza la carga de plantas
+        }
     }
+
 }
