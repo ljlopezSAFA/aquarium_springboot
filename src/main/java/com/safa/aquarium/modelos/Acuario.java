@@ -35,8 +35,7 @@ public class Acuario {
     @JoinTable(
             name = "planta_acuario", catalog = "postgres", schema = "aquarium",
             joinColumns = {@JoinColumn(name = "id_acuario", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "id_planta", nullable = false)}
-    )
+            inverseJoinColumns = {@JoinColumn(name = "id_planta", nullable = false)})
     private Set<Planta> plantas;
 
 
