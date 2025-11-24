@@ -5,7 +5,6 @@ import com.safa.aquarium.dto.AcuarioCrearDTO;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.servicios.AcuarioService;
 import lombok.AllArgsConstructor;
-import org.hibernate.id.IntegralDataTypeHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,5 +1,6 @@
 package com.safa.aquarium.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AcuarioCrearDTO {
-    private Integer id;
-    private Double capacidad;
-    private String medidas;
-    private Integer idUsuario;
+public class PersonajesPorPlaneta {
+    String nombrePlaneta;
+    Integer numPersonajes;
 }

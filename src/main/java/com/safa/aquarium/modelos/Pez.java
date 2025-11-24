@@ -32,6 +32,9 @@ public class Pez {
     @Column(name = "ficha")
     private String ficha;
 
+    @Column(name = "foto_url")
+    private String foto;
+
 
 
 
