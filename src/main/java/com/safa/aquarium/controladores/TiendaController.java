@@ -3,6 +3,7 @@ package com.safa.aquarium.controladores;
 import com.safa.aquarium.dto.CrearTiendaDTO;
 import com.safa.aquarium.dto.TiendaDTO;
 import com.safa.aquarium.servicios.TiendaService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class TiendaController {
     }
 
     @PostMapping("/crear")
-    public void crearTienda(@RequestBody  CrearTiendaDTO dto){
+    public void crearTienda(@Valid @RequestBody CrearTiendaDTO dto){
         service.crearTienda(dto);
 
     }
