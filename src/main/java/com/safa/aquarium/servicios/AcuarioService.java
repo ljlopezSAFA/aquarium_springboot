@@ -1,6 +1,7 @@
 package com.safa.aquarium.servicios;
 
 
+import com.safa.aquarium.conversores.AcuarioMapper;
 import com.safa.aquarium.dto.AcuarioCrearDTO;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Usuario;
@@ -16,6 +17,7 @@ public class AcuarioService {
 
     private IAcuarioRepository repository;
     private UsuarioService usuarioService;
+    private AcuarioMapper mapper;
 
 
     /**
@@ -42,14 +44,7 @@ public class AcuarioService {
     }
 
     public void crearAcuario(AcuarioCrearDTO dto){
-        Acuario acuarioNuevo = new Acuario();
-        acuarioNuevo.setCapacidad(dto.getCapacidad());
-        acuarioNuevo.setMedidas(dto.getMedidas());
-
-        Usuario usuario = usuarioService.getById(dto.getIdUsuario());
-        acuarioNuevo.setUsuario(usuario);
-
-        repository.save(acuarioNuevo);
+        repository.save(mapper.toEntity(dto));
     }
 
 

@@ -1,20 +1,32 @@
 package com.safa.aquarium.conversores;
 
-import com.safa.aquarium.dto.AcuarioDTO;
+import com.safa.aquarium.dto.AcuarioCrearDTO;
 import com.safa.aquarium.modelos.Acuario;
+import com.safa.aquarium.modelos.Usuario;
+import com.safa.aquarium.repositorios.IUsuarioRepository;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper(componentModel = "spring")
-public interface AcuarioMapper {
-
-    PlantaMapper INSTANCE = Mappers.getMapper(PlantaMapper.class);
-    UsuarioMapper INSTANCE2 = Mappers.getMapper(UsuarioMapper.class);
+public abstract class AcuarioMapper {
 
 
-    AcuarioDTO toDTO(Acuario entity);
+    @Autowired
+    private IUsuarioRepository usuarioRepository;
 
 
-    Acuario toEntity(AcuarioDTO dto);
+    @Mapping(source = "idUsuario", target = "usuario")
+    public abstract Acuario toEntity(AcuarioCrearDTO dto);
+
+    Usuario transformasUsuario(Integer id){
+        return  usuarioRepository.findById(id).orElse(null);
+
+    }
+
+
+
+
+
 
 }

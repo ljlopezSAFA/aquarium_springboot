@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AcuarioCrearDTO {
 
-    private Integer id;
 
     @Min(value = 10, message = "La capacidad debe ser mayor a 10L")
     private Double capacidad;
+
     private String medidas;
 
     @NotNull(message = "Debes de indicar un id usuario")
