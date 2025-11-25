@@ -2,9 +2,13 @@ package com.safa.aquarium.controladores;
 
 
 import com.safa.aquarium.dto.AcuarioCrearDTO;
+import com.safa.aquarium.dto.ApiResponse;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.servicios.AcuarioService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,11 +34,9 @@ public class AcuarioController {
 
 
     @PostMapping("/crear")
-    public void crearAcuario(@RequestBody AcuarioCrearDTO dto){
+    public void crearAcuario(@Valid @RequestBody AcuarioCrearDTO dto){
         service.crearAcuario(dto);
-
     }
-
 
     @PutMapping("/editar/{id}")
     public void editarAcuario(@PathVariable  Integer id,@RequestBody AcuarioCrearDTO dto){

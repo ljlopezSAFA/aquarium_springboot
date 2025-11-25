@@ -26,7 +26,6 @@ public class PecesController {
     }
 
 
-
     @PutMapping("/modificar/{id}")
     public void modificarPez(@PathVariable Integer id,@RequestBody CrearPezDTO dto){
         service.modificarPez(id,dto);

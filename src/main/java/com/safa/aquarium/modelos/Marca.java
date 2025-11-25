@@ -3,6 +3,8 @@ package com.safa.aquarium.modelos;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -20,6 +22,9 @@ public class Marca {
 
     @Column(name = "nombre")
     private String nombre;
+
+    @OneToMany(mappedBy = "marca")
+    private Set<Producto> productos;
 
 
 

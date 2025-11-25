@@ -1,5 +1,6 @@
 package com.safa.aquarium.servicios;
 
+import com.safa.aquarium.conversores.PezMapper;
 import com.safa.aquarium.dto.CrearPezDTO;
 import com.safa.aquarium.dto.PezDTO;
 import com.safa.aquarium.modelos.Pez;
@@ -7,7 +8,6 @@ import com.safa.aquarium.repositorios.IPezRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,46 +16,24 @@ import java.util.Optional;
 public class PezService {
 
     private IPezRepository repository;
+    private PezMapper mapper;
 
 
 
 
     public List<PezDTO> consultarPeces(){
-
-        List<Pez> peces = repository.findAll();
-        List<PezDTO> dtos = new ArrayList<>();
-
-        for(Pez p: peces){
-            PezDTO dto = new PezDTO();
-            dto.setId(p.getId());
-            dto.setNombre(p.getNombreComun());
-            dto.setFoto(p.getFoto());
-            dto.setDescripcion(p.getDescripcion());
-            dtos.add(dto);
-        }
-
-        return dtos;
+        return mapper.convertirADTO(repository.findAll());
     }
 
 
     public void crearPez(CrearPezDTO dto){
-
-        Pez pez = new Pez();
-        pez.setFoto(dto.getFoto());
-        pez.setNombreComun(dto.getNombre());
-        pez.setDescripcion(dto.getDescripcion());
-        pez.setEspecie(dto.getEspecie());
-        pez.setFicha(dto.getFicha());
-
-        repository.save(pez);
-
+        repository.save(mapper.convertirAEntity(dto));
     }
 
 
     public void modificarPez(Integer id, CrearPezDTO dto){
 
         Optional<Pez> pez = repository.findById(id);
-
         if(pez.isPresent()){
             Pez pezModificar = pez.get();
             pezModificar.setFoto(dto.getFoto());
@@ -65,8 +43,6 @@ public class PezService {
             pezModificar.setFicha(dto.getFicha());
             repository.save(pezModificar);
         }
-
-
 
 
     }

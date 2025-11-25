@@ -14,7 +14,6 @@ import lombok.*;
 @Table(name = "tienda", catalog = "postgres", schema = "aquarium")
 public class Tienda {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

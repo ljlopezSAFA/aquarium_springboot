@@ -27,7 +27,6 @@ public class Producto {
     @Column(name = "url_imagen")
     private String urlImagen;
 
-
     @ManyToOne
     @JoinColumn(name="id_marca")
     private Marca marca;
