@@ -2,6 +2,7 @@ package com.safa.aquarium.controladores;
 
 
 import com.safa.aquarium.dto.AcuarioCrearDTO;
+import com.safa.aquarium.dto.AcuarioDTO;
 import com.safa.aquarium.dto.ApiResponse;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.servicios.AcuarioService;
@@ -22,7 +23,7 @@ public class AcuarioController {
 
 
     @GetMapping("/all")
-    public List<Acuario> obtenerTodosAcuarios(){
+    public List<AcuarioDTO> obtenerTodosAcuarios(){
         return service.buscarTodos();
     }
 

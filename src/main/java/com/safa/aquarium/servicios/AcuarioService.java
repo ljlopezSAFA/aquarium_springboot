@@ -3,6 +3,7 @@ package com.safa.aquarium.servicios;
 
 import com.safa.aquarium.conversores.AcuarioMapper;
 import com.safa.aquarium.dto.AcuarioCrearDTO;
+import com.safa.aquarium.dto.AcuarioDTO;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Usuario;
 import com.safa.aquarium.repositorios.IAcuarioRepository;
@@ -33,8 +34,8 @@ public class AcuarioService {
      *
      *
      */
-    public List<Acuario> buscarTodos(){
-        return repository.findAll();
+    public List<AcuarioDTO> buscarTodos(){
+        return mapper.toDTO(repository.findAll());
     }
 
 
