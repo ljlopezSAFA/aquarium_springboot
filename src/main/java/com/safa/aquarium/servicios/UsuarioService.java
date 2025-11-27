@@ -1,13 +1,13 @@
 package com.safa.aquarium.servicios;
 
 
-import com.safa.aquarium.dto.AcuarioDTO;
-import com.safa.aquarium.dto.UsuarioDTO;
-import com.safa.aquarium.dto.UsuarioDatosDTO;
+import com.safa.aquarium.dto.*;
 import com.safa.aquarium.modelos.Usuario;
 import com.safa.aquarium.repositorios.IUsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,7 +37,6 @@ public class UsuarioService {
 
 
 
-
     public UsuarioDatosDTO getByIdCOnDatos(Integer id){
         Usuario usuario =  repository.findById(id).orElse(null);
 
@@ -59,6 +58,11 @@ public class UsuarioService {
         }
 
 
+    }
+
+
+    public List<EstadisticasUsuarioDTO> consultarUsuariosYAcuarios(){
+        return repository.estadisticasUsuario();
     }
 
 
