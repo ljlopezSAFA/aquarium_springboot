@@ -16,7 +16,6 @@ import java.util.Set;
 @Table(name = "usuario", catalog = "postgres", schema = "aquarium")
 public class Usuario {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,6 +26,22 @@ public class Usuario {
 
     @Column(name = "password")
     private String password;
+
+
+    @Column(name = "nombre")
+    private String nombre;
+
+
+    @Column(name = "apellidos")
+    private String apellidos;
+
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "dni")
+    private String dni;
+
 
 
 

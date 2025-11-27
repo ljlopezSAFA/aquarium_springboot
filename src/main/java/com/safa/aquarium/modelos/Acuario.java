@@ -26,7 +26,6 @@ public class Acuario {
     @Column(name = "medidas")
     private String medidas;
 
-
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

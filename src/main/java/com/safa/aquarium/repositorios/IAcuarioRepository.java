@@ -2,6 +2,7 @@ package com.safa.aquarium.repositorios;
 
 import com.safa.aquarium.dto.PersonajesPorPlaneta;
 import com.safa.aquarium.modelos.Acuario;
+import com.safa.aquarium.modelos.Usuario;
 import org.apache.logging.log4j.spi.ObjectThreadContextMap;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -36,5 +37,11 @@ public interface IAcuarioRepository extends JpaRepository<Acuario,Integer> {
 
 
     List<Acuario> findAllByCapacidadIsGreaterThanAndMedidasEquals(Double capacidad,String medidas);
+
+
+
+
+    List<Acuario> findAllByUsuarioEquals(Usuario usuario);
+
 
 }

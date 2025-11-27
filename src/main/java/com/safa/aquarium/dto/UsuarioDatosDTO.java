@@ -5,17 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDTO {
+public class UsuarioDatosDTO {
     private Integer id;
     private String mail;
-    private String password;
     private String nombre;
     private String apellidos;
     private String telefono;
     private String dni;
+    private List<AcuarioDTO> acuarios;
 
 
 }

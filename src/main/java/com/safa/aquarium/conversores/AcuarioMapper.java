@@ -17,7 +17,6 @@ public abstract class AcuarioMapper {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
-
     @Mapping(source = "idUsuario", target = "usuario")
     public abstract Acuario toEntity(AcuarioCrearDTO dto);
 
