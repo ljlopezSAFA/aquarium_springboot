@@ -20,7 +20,6 @@ public abstract class AcuarioMapper {
     @Mapping(source = "idUsuario", target = "usuario")
     public abstract Acuario toEntity(AcuarioCrearDTO dto);
 
-
     public abstract AcuarioDTO toDTO(Acuario entity);
 
     public abstract List<AcuarioDTO> toDTO(List<Acuario> entity);

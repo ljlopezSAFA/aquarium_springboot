@@ -20,6 +20,15 @@ public class Acuario {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "foto")
+    private String foto;
+
     @Column(name = "capacidad")
     private Double capacidad;
 

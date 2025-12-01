@@ -9,6 +9,9 @@ import java.util.Set;
 @AllArgsConstructor
 public class AcuarioDTO {
     private Integer id;
+    private String nombre;
+    private String descripcion;
+    private String foto;
     private Double capacidad;
     private String medidas;
     private UsuarioDTO usuario;
