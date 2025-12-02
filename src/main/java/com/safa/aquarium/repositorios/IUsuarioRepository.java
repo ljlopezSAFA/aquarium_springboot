@@ -21,4 +21,9 @@ public interface IUsuarioRepository extends JpaRepository<Usuario,Integer> {
      List<EstadisticasUsuarioDTO> estadisticasUsuario();
 
 
+
+
+    Usuario findTopByMailEquals(String mail);
+
+
 }

@@ -4,18 +4,23 @@ package com.safa.aquarium.servicios;
 import com.safa.aquarium.dto.*;
 import com.safa.aquarium.modelos.Usuario;
 import com.safa.aquarium.repositorios.IUsuarioRepository;
+import com.safa.aquarium.seguridad.MecanismoSeguridad;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
 
     private IUsuarioRepository repository;
     private AcuarioService acuarioService;
+    private MecanismoSeguridad seguridad;
+
 
 
     public void crearUsuario(UsuarioDTO dto){
@@ -24,7 +29,7 @@ public class UsuarioService {
         usuario.setDni(dto.getDni());
         usuario.setMail(dto.getMail());
         usuario.setTelefono(dto.getTelefono());
-        usuario.setPassword(dto.getPassword());
+        usuario.setPassword(seguridad.getEncritadorClaves().encode(dto.getPassword()));
         usuario.setApellidos(dto.getApellidos());
         repository.save(usuario);
 
@@ -57,7 +62,6 @@ public class UsuarioService {
             return null;
         }
 
-
     }
 
 
@@ -66,7 +70,10 @@ public class UsuarioService {
     }
 
 
-
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return repository.findTopByMailEquals(username);
+    }
 
 
 
