@@ -98,10 +98,13 @@ public class AcuarioService {
     public void editarAcuario(Integer id, AcuarioCrearDTO dto){
         Acuario acuarioNuevo = repository.findById(id).orElse(null);
 
+
         if(acuarioNuevo != null){
             acuarioNuevo.setCapacidad(dto.getCapacidad());
             acuarioNuevo.setMedidas(dto.getMedidas());
-
+            acuarioNuevo.setNombre(dto.getNombre());
+            acuarioNuevo.setDescripcion(dto.getDescripcion());
+            acuarioNuevo.setFoto(dto.getFoto());
             repository.save(acuarioNuevo);
         }
 

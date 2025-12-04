@@ -27,7 +27,6 @@ public class AcuarioCrearDTO {
     @NotNull
     private String foto;
 
-    private LocalDate fecha;
 
 
     @NotNull(message = "Debes de indicar un id usuario")
