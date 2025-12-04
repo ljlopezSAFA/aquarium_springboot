@@ -19,10 +19,8 @@ public class ErrorControler {
     public ResponseEntity<Map<String, String>> controladorErrores(MethodArgumentNotValidException exception){
 
         Map<String, String> mapaErrores = new HashMap<>();
-
         for(FieldError error : exception.getBindingResult().getFieldErrors()){
-            mapaErrores.put(error.getField(), error.getDefaultMessage());
-        }
+            mapaErrores.put(error.getField(), error.getDefaultMessage());}
         return new ResponseEntity<>(mapaErrores, HttpStatus.BAD_REQUEST);
 
     }
@@ -42,8 +40,6 @@ public class ErrorControler {
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-
-
     }
 
 
