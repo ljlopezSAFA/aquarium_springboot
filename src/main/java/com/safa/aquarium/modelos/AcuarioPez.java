@@ -24,7 +24,7 @@ public class AcuarioPez {
     @Column(name = "cantidad_macho")
     private Integer cantidadMacho;
 
-    @Column(name = "cantidad_hembra")
+    @Column(name = "cantidad__hembra")
     private Integer cantidadHembra;
 
     @ManyToOne

@@ -2,6 +2,7 @@ package com.safa.aquarium.conversores;
 
 import com.safa.aquarium.dto.AcuarioCrearDTO;
 import com.safa.aquarium.dto.AcuarioDTO;
+import com.safa.aquarium.dto.AcuarioDetalleDTO;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Usuario;
 import com.safa.aquarium.repositorios.IUsuarioRepository;
@@ -21,6 +22,8 @@ public abstract class AcuarioMapper {
     public abstract Acuario toEntity(AcuarioCrearDTO dto);
 
     public abstract AcuarioDTO toDTO(Acuario entity);
+
+    public abstract AcuarioDetalleDTO toDetalleDTO(Acuario entity);
 
     public abstract List<AcuarioDTO> toDTO(List<Acuario> entity);
 

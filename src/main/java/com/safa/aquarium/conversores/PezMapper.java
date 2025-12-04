@@ -12,19 +12,18 @@ import java.util.List;
 public interface PezMapper {
 
 
-    @Mapping(source = "nombre", target ="nombreComun")
+
     Pez convertirAEntity(PezDTO dto);
 
 
     List<Pez> convertirAEntity(List<PezDTO> dtos);
 
-    @Mapping(source = "nombreComun", target ="nombre" )
+
     PezDTO convertirADTO(Pez entity);
 
     List<PezDTO> convertirADTO(List<Pez> dtos);
 
 
-    @Mapping(source = "nombre", target ="nombreComun")
     Pez convertirAEntity(CrearPezDTO dto);
 
 

@@ -1,15 +1,11 @@
 package com.safa.aquarium.controladores;
 
 
-import com.safa.aquarium.dto.AcuarioCrearDTO;
-import com.safa.aquarium.dto.AcuarioDTO;
-import com.safa.aquarium.dto.ApiResponse;
+import com.safa.aquarium.dto.*;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.servicios.AcuarioService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,9 +23,9 @@ public class AcuarioController {
         return service.buscarTodos();
     }
 
-    //path variable
-    @GetMapping("/{id}")
-    public Acuario obtenerPorId(@PathVariable Integer id) {
+
+    @GetMapping("/detalle/{id}")
+    public AcuarioDetalleDTO obtenerPorId(@PathVariable Integer id) {
         return service.buscarPorId(id);
     }
 
@@ -38,6 +34,30 @@ public class AcuarioController {
     public void crearAcuario(@Valid @RequestBody AcuarioCrearDTO dto){
         service.crearAcuario(dto);
     }
+
+
+    @PutMapping("/planta/vincular")
+    public void vincularPlanta(@Valid @RequestBody AcuarioPlantaVincularDTO dto){
+        service.vincular(dto);
+    }
+
+    @PutMapping("/planta/desvincular")
+    public void desvincularPlanta(@Valid @RequestBody AcuarioPlantaVincularDTO dto){
+       //TODO
+    }
+
+
+    @PutMapping("/pez/vincular")
+    public void vincularPez(@Valid @RequestBody AcuarioPezVincularDTO dto){
+        service.vincularPez(dto);
+    }
+
+    @PutMapping("/pez/desvincular")
+    public void desvincularPez(@Valid @RequestBody AcuarioPezVincularDTO dto){
+        //TODO
+    }
+
+
 
     @PutMapping("/editar/{id}")
     public void editarAcuario(@PathVariable  Integer id,@RequestBody AcuarioCrearDTO dto){

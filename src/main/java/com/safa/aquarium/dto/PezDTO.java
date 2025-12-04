@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class PezDTO {
 
     private Integer id;
-    private String nombre;
+    private String nombreComun;
     private String foto;
     private String descripcion;
 

@@ -1,6 +1,5 @@
 package com.safa.aquarium.dto;
 
-import com.safa.aquarium.modelos.TipoPlanta;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,10 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlantaDTO {
+public class AcuarioPezDTO {
 
     private Integer id;
-    private String nombre;
-    private String ficha;
-    private TipoPlanta tipoPlanta;
+    private PezDTO pez;
+    private Integer cantidad;
+    private Integer cantidadHembra;
+    private Integer cantidadMacho;
+
 }

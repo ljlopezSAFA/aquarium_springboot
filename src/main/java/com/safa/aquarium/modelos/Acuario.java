@@ -9,8 +9,8 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = {"plantas", "usuario"})
-@EqualsAndHashCode(exclude = {"plantas", "usuario"})
+@ToString(exclude = {"plantas", "usuario", "peces"})
+@EqualsAndHashCode(exclude = {"plantas", "usuario", "peces"})
 @Entity
 @Table(name = "acuario", catalog = "postgres", schema = "aquarium")
 public class Acuario {
@@ -45,6 +45,10 @@ public class Acuario {
             joinColumns = {@JoinColumn(name = "id_acuario", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "id_planta", nullable = false)})
     private Set<Planta> plantas;
+
+
+    @OneToMany(mappedBy = "acuario")
+    private Set<AcuarioPez> peces;
 
 
 }

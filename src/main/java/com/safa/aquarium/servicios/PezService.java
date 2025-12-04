@@ -3,6 +3,7 @@ package com.safa.aquarium.servicios;
 import com.safa.aquarium.conversores.PezMapper;
 import com.safa.aquarium.dto.CrearPezDTO;
 import com.safa.aquarium.dto.PezDTO;
+import com.safa.aquarium.exception.EliminarNoExistenteException;
 import com.safa.aquarium.modelos.Pez;
 import com.safa.aquarium.repositorios.IPezRepository;
 import lombok.AllArgsConstructor;
@@ -37,7 +38,7 @@ public class PezService {
         if(pez.isPresent()){
             Pez pezModificar = pez.get();
             pezModificar.setFoto(dto.getFoto());
-            pezModificar.setNombreComun(dto.getNombre());
+            pezModificar.setNombreComun(dto.getNombreComun());
             pezModificar.setDescripcion(dto.getDescripcion());
             pezModificar.setEspecie(dto.getEspecie());
             pezModificar.setFicha(dto.getFicha());
@@ -49,7 +50,18 @@ public class PezService {
 
 
     public void borrar(Integer id){
-        repository.deleteById(id);
+
+        Pez pez = repository.findById(id).orElse(null);
+
+        if(pez == null){
+
+            throw new EliminarNoExistenteException("El pez que quieres eliminar no existe");
+
+        }else{
+            repository.deleteById(id);
+        }
+
+
     }
 
 }

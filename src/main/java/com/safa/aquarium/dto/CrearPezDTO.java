@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CrearPezDTO {
-    private String nombre;
+    private String nombreComun;
     private String foto;
     private String ficha;
     private Especie especie;
