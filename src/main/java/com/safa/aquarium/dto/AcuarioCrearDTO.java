@@ -28,7 +28,6 @@ public class AcuarioCrearDTO {
     private String foto;
 
 
-
     @NotNull(message = "Debes de indicar un id usuario")
     private Integer idUsuario;
 }

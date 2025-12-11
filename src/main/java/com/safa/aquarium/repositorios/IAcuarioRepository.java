@@ -5,6 +5,7 @@ import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Usuario;
 import org.apache.logging.log4j.spi.ObjectThreadContextMap;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -42,6 +43,11 @@ public interface IAcuarioRepository extends JpaRepository<Acuario,Integer> {
 
 
     List<Acuario> findAllByUsuarioEquals(Usuario usuario);
+
+
+    @Modifying
+    @Query(value = "delete from aquarium.planta_acuario pa  where pa.id_acuario = :idAcuario " , nativeQuery = true)
+    void eliminarRelacionesAcuario(@Param("idAcuario") Integer idAcuario);
 
 
 }

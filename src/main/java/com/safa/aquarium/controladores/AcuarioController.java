@@ -2,12 +2,10 @@ package com.safa.aquarium.controladores;
 
 
 import com.safa.aquarium.dto.*;
-import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.servicios.AcuarioService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -67,7 +65,14 @@ public class AcuarioController {
 
     @DeleteMapping("/{id}")
     public void eliminarAcuario(@PathVariable  Integer id){
+
+
          service.eliminarPorId(id);
+
+
+
+
+
     }
 
 

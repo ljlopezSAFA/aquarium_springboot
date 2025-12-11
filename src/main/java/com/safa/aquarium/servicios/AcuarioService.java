@@ -9,6 +9,7 @@ import com.safa.aquarium.repositorios.IAcuarioPezRepository;
 import com.safa.aquarium.repositorios.IAcuarioRepository;
 import com.safa.aquarium.repositorios.IPezRepository;
 import com.safa.aquarium.repositorios.IPlantaRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -111,8 +112,11 @@ public class AcuarioService {
     }
 
 
+    @Transactional
     public void eliminarPorId(Integer id){
+        repository.eliminarRelacionesAcuario(id);
         repository.deleteById(id);
+
     }
 
 

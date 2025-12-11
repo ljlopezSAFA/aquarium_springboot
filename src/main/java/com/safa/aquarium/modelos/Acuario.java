@@ -47,7 +47,7 @@ public class Acuario {
     private Set<Planta> plantas;
 
 
-    @OneToMany(mappedBy = "acuario")
+    @OneToMany(mappedBy = "acuario", cascade = CascadeType.REMOVE)
     private Set<AcuarioPez> peces;
 
 
