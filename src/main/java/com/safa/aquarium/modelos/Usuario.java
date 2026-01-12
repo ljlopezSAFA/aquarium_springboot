@@ -18,7 +18,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "usuario", catalog = "postgres", schema = "aquarium")
+@Table(name = "usuario",  schema = "aquarium")
 public class Usuario implements UserDetails {
 
     @Id

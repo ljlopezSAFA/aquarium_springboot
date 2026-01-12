@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "marca", catalog = "postgres", schema = "aquarium")
+@Table(name = "marca", schema = "aquarium")
 public class Marca {
 
     @Id

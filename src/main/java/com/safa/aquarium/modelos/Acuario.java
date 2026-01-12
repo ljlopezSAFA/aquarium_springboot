@@ -12,7 +12,7 @@ import java.util.Set;
 @ToString(exclude = {"plantas", "usuario", "peces"})
 @EqualsAndHashCode(exclude = {"plantas", "usuario", "peces"})
 @Entity
-@Table(name = "acuario", catalog = "postgres", schema = "aquarium")
+@Table(name = "acuario", schema = "aquarium")
 public class Acuario {
 
     @Id
@@ -41,7 +41,7 @@ public class Acuario {
 
     @ManyToMany
     @JoinTable(
-            name = "planta_acuario", catalog = "postgres", schema = "aquarium",
+            name = "planta_acuario", schema = "aquarium",
             joinColumns = {@JoinColumn(name = "id_acuario", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "id_planta", nullable = false)})
     private Set<Planta> plantas;

@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tienda", catalog = "postgres", schema = "aquarium")
+@Table(name = "tienda", schema = "aquarium")
 public class Tienda {
 
     @Id
