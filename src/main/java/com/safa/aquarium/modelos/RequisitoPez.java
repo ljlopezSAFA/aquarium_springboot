@@ -11,7 +11,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "requisito_pez",catalog = "postgres", schema = "aquarium")
+@Table(name = "requisito_pez", schema = "aquarium")
 public class RequisitoPez {
 
     @Id

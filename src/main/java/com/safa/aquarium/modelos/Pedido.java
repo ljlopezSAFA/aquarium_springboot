@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(catalog = "postgres", schema = "aquarium", name = "pedido")
+@Table( schema = "aquarium", name = "pedido")
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = {"lineas"})

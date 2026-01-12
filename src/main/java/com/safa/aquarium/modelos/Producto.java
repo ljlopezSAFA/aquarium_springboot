@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "producto", catalog = "postgres", schema = "aquarium")
+@Table(name = "producto",  schema = "aquarium")
 public class Producto {
 
     @Id
