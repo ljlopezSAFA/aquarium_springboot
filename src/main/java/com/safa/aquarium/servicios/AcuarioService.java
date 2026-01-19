@@ -56,11 +56,12 @@ public class AcuarioService {
         Acuario acuario = repository.findById(dto.getIdAcuario()).orElse(null);
         Planta planta =  plantaRepository.findById(dto.getIdPlanta()).orElse(null);
 
-        if(acuario!= null && planta!= null & !acuario.getPlantas().contains(planta)){
+        if(acuario!= null && planta!= null && !acuario.getPlantas().contains(planta)){
 
             acuario.getPlantas().add(planta);
             repository.save(acuario);
         }
+
     }
 
 

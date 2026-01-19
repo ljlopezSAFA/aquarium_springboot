@@ -6,8 +6,7 @@ import com.safa.aquarium.exception.ElementoNoEncontradoException;
 import com.safa.aquarium.modelos.Acuario;
 import com.safa.aquarium.modelos.Planta;
 import com.safa.aquarium.modelos.TipoPlanta;
-import com.safa.aquarium.repositorios.IAcuarioRepository;
-import com.safa.aquarium.repositorios.IPlantaRepository;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -31,10 +30,7 @@ public class AcuarioServiceTest {
     private AcuarioService service;
 
     @Autowired
-    private IAcuarioRepository repository;
-
-    @Autowired
-    private IPlantaRepository repositoryPlanta;
+    private EntityManager entityManager;
 
 
     @BeforeAll
@@ -64,10 +60,9 @@ public class AcuarioServiceTest {
         planta.setTipoPlanta(TipoPlanta.FONDO);
         planta.setFicha("Planta de prueba con su ficha");
 
-        repository.save(a);
-        repository.save(a2);
-        repositoryPlanta.save(planta);
-
+        entityManager.persist(a);
+        entityManager.persist(a2);
+        entityManager.persist(planta);
 
     }
 
